@@ -1,0 +1,986 @@
+<!doctype HTML>
+<meta charset = 'utf-8'>
+<html>
+  <head>
+    <link rel='stylesheet' href='http://rcharts.github.io/parcoords/libraries/widgets/parcoords/external/d3.parcoords.css'>
+    
+    <script src='http://rcharts.github.io/parcoords/libraries/widgets/parcoords/external/d3.min.js' type='text/javascript'></script>
+    <script src='http://rcharts.github.io/parcoords/libraries/widgets/parcoords/external/d3.parcoords.js' type='text/javascript'></script>
+    
+    <style>
+    .rChart {
+      display: block;
+      margin-left: auto; 
+      margin-right: auto;
+      width: 960px;
+      height: 500px;
+    }  
+    </style>
+    
+  </head>
+  <body >
+    
+    <div id = 'chartb3d91cf18846' class = 'rChart parcoords'></div>    
+    <script id="brushing">
+var params = {
+ "dom": "chartb3d91cf18846",
+"width":    960,
+"height":    500,
+"padding": {
+ "top":     50,
+"bottom":     50,
+"left":     50,
+"right":     50 
+},
+"data": [
+ {
+ "Subject": "1",
+"Wt":   79.6,
+"Dose":   4.02,
+"Time":      0,
+"conc":   0.74 
+},
+{
+ "Subject": "1",
+"Wt":   79.6,
+"Dose":   4.02,
+"Time":   0.25,
+"conc":   2.84 
+},
+{
+ "Subject": "1",
+"Wt":   79.6,
+"Dose":   4.02,
+"Time":   0.57,
+"conc":   6.57 
+},
+{
+ "Subject": "1",
+"Wt":   79.6,
+"Dose":   4.02,
+"Time":   1.12,
+"conc":   10.5 
+},
+{
+ "Subject": "1",
+"Wt":   79.6,
+"Dose":   4.02,
+"Time":   2.02,
+"conc":   9.66 
+},
+{
+ "Subject": "1",
+"Wt":   79.6,
+"Dose":   4.02,
+"Time":   3.82,
+"conc":   8.58 
+},
+{
+ "Subject": "1",
+"Wt":   79.6,
+"Dose":   4.02,
+"Time":    5.1,
+"conc":   8.36 
+},
+{
+ "Subject": "1",
+"Wt":   79.6,
+"Dose":   4.02,
+"Time":   7.03,
+"conc":   7.47 
+},
+{
+ "Subject": "1",
+"Wt":   79.6,
+"Dose":   4.02,
+"Time":   9.05,
+"conc":   6.89 
+},
+{
+ "Subject": "1",
+"Wt":   79.6,
+"Dose":   4.02,
+"Time":  12.12,
+"conc":   5.94 
+},
+{
+ "Subject": "1",
+"Wt":   79.6,
+"Dose":   4.02,
+"Time":  24.37,
+"conc":   3.28 
+},
+{
+ "Subject": "2",
+"Wt":   72.4,
+"Dose":    4.4,
+"Time":      0,
+"conc":      0 
+},
+{
+ "Subject": "2",
+"Wt":   72.4,
+"Dose":    4.4,
+"Time":   0.27,
+"conc":   1.72 
+},
+{
+ "Subject": "2",
+"Wt":   72.4,
+"Dose":    4.4,
+"Time":   0.52,
+"conc":   7.91 
+},
+{
+ "Subject": "2",
+"Wt":   72.4,
+"Dose":    4.4,
+"Time":      1,
+"conc":   8.31 
+},
+{
+ "Subject": "2",
+"Wt":   72.4,
+"Dose":    4.4,
+"Time":   1.92,
+"conc":   8.33 
+},
+{
+ "Subject": "2",
+"Wt":   72.4,
+"Dose":    4.4,
+"Time":    3.5,
+"conc":   6.85 
+},
+{
+ "Subject": "2",
+"Wt":   72.4,
+"Dose":    4.4,
+"Time":   5.02,
+"conc":   6.08 
+},
+{
+ "Subject": "2",
+"Wt":   72.4,
+"Dose":    4.4,
+"Time":   7.03,
+"conc":    5.4 
+},
+{
+ "Subject": "2",
+"Wt":   72.4,
+"Dose":    4.4,
+"Time":      9,
+"conc":   4.55 
+},
+{
+ "Subject": "2",
+"Wt":   72.4,
+"Dose":    4.4,
+"Time":     12,
+"conc":   3.01 
+},
+{
+ "Subject": "2",
+"Wt":   72.4,
+"Dose":    4.4,
+"Time":   24.3,
+"conc":    0.9 
+},
+{
+ "Subject": "3",
+"Wt":   70.5,
+"Dose":   4.53,
+"Time":      0,
+"conc":      0 
+},
+{
+ "Subject": "3",
+"Wt":   70.5,
+"Dose":   4.53,
+"Time":   0.27,
+"conc":    4.4 
+},
+{
+ "Subject": "3",
+"Wt":   70.5,
+"Dose":   4.53,
+"Time":   0.58,
+"conc":    6.9 
+},
+{
+ "Subject": "3",
+"Wt":   70.5,
+"Dose":   4.53,
+"Time":   1.02,
+"conc":    8.2 
+},
+{
+ "Subject": "3",
+"Wt":   70.5,
+"Dose":   4.53,
+"Time":   2.02,
+"conc":    7.8 
+},
+{
+ "Subject": "3",
+"Wt":   70.5,
+"Dose":   4.53,
+"Time":   3.62,
+"conc":    7.5 
+},
+{
+ "Subject": "3",
+"Wt":   70.5,
+"Dose":   4.53,
+"Time":   5.08,
+"conc":    6.2 
+},
+{
+ "Subject": "3",
+"Wt":   70.5,
+"Dose":   4.53,
+"Time":   7.07,
+"conc":    5.3 
+},
+{
+ "Subject": "3",
+"Wt":   70.5,
+"Dose":   4.53,
+"Time":      9,
+"conc":    4.9 
+},
+{
+ "Subject": "3",
+"Wt":   70.5,
+"Dose":   4.53,
+"Time":  12.15,
+"conc":    3.7 
+},
+{
+ "Subject": "3",
+"Wt":   70.5,
+"Dose":   4.53,
+"Time":  24.17,
+"conc":   1.05 
+},
+{
+ "Subject": "4",
+"Wt":   72.7,
+"Dose":    4.4,
+"Time":      0,
+"conc":      0 
+},
+{
+ "Subject": "4",
+"Wt":   72.7,
+"Dose":    4.4,
+"Time":   0.35,
+"conc":   1.89 
+},
+{
+ "Subject": "4",
+"Wt":   72.7,
+"Dose":    4.4,
+"Time":    0.6,
+"conc":    4.6 
+},
+{
+ "Subject": "4",
+"Wt":   72.7,
+"Dose":    4.4,
+"Time":   1.07,
+"conc":    8.6 
+},
+{
+ "Subject": "4",
+"Wt":   72.7,
+"Dose":    4.4,
+"Time":   2.13,
+"conc":   8.38 
+},
+{
+ "Subject": "4",
+"Wt":   72.7,
+"Dose":    4.4,
+"Time":    3.5,
+"conc":   7.54 
+},
+{
+ "Subject": "4",
+"Wt":   72.7,
+"Dose":    4.4,
+"Time":   5.02,
+"conc":   6.88 
+},
+{
+ "Subject": "4",
+"Wt":   72.7,
+"Dose":    4.4,
+"Time":   7.02,
+"conc":   5.78 
+},
+{
+ "Subject": "4",
+"Wt":   72.7,
+"Dose":    4.4,
+"Time":   9.02,
+"conc":   5.33 
+},
+{
+ "Subject": "4",
+"Wt":   72.7,
+"Dose":    4.4,
+"Time":  11.98,
+"conc":   4.19 
+},
+{
+ "Subject": "4",
+"Wt":   72.7,
+"Dose":    4.4,
+"Time":  24.65,
+"conc":   1.15 
+},
+{
+ "Subject": "5",
+"Wt":   54.6,
+"Dose":   5.86,
+"Time":      0,
+"conc":      0 
+},
+{
+ "Subject": "5",
+"Wt":   54.6,
+"Dose":   5.86,
+"Time":    0.3,
+"conc":   2.02 
+},
+{
+ "Subject": "5",
+"Wt":   54.6,
+"Dose":   5.86,
+"Time":   0.52,
+"conc":   5.63 
+},
+{
+ "Subject": "5",
+"Wt":   54.6,
+"Dose":   5.86,
+"Time":      1,
+"conc":   11.4 
+},
+{
+ "Subject": "5",
+"Wt":   54.6,
+"Dose":   5.86,
+"Time":   2.02,
+"conc":   9.33 
+},
+{
+ "Subject": "5",
+"Wt":   54.6,
+"Dose":   5.86,
+"Time":    3.5,
+"conc":   8.74 
+},
+{
+ "Subject": "5",
+"Wt":   54.6,
+"Dose":   5.86,
+"Time":   5.02,
+"conc":   7.56 
+},
+{
+ "Subject": "5",
+"Wt":   54.6,
+"Dose":   5.86,
+"Time":   7.02,
+"conc":   7.09 
+},
+{
+ "Subject": "5",
+"Wt":   54.6,
+"Dose":   5.86,
+"Time":    9.1,
+"conc":    5.9 
+},
+{
+ "Subject": "5",
+"Wt":   54.6,
+"Dose":   5.86,
+"Time":     12,
+"conc":   4.37 
+},
+{
+ "Subject": "5",
+"Wt":   54.6,
+"Dose":   5.86,
+"Time":  24.35,
+"conc":   1.57 
+},
+{
+ "Subject": "6",
+"Wt":     80,
+"Dose":      4,
+"Time":      0,
+"conc":      0 
+},
+{
+ "Subject": "6",
+"Wt":     80,
+"Dose":      4,
+"Time":   0.27,
+"conc":   1.29 
+},
+{
+ "Subject": "6",
+"Wt":     80,
+"Dose":      4,
+"Time":   0.58,
+"conc":   3.08 
+},
+{
+ "Subject": "6",
+"Wt":     80,
+"Dose":      4,
+"Time":   1.15,
+"conc":   6.44 
+},
+{
+ "Subject": "6",
+"Wt":     80,
+"Dose":      4,
+"Time":   2.03,
+"conc":   6.32 
+},
+{
+ "Subject": "6",
+"Wt":     80,
+"Dose":      4,
+"Time":   3.57,
+"conc":   5.53 
+},
+{
+ "Subject": "6",
+"Wt":     80,
+"Dose":      4,
+"Time":      5,
+"conc":   4.94 
+},
+{
+ "Subject": "6",
+"Wt":     80,
+"Dose":      4,
+"Time":      7,
+"conc":   4.02 
+},
+{
+ "Subject": "6",
+"Wt":     80,
+"Dose":      4,
+"Time":   9.22,
+"conc":   3.46 
+},
+{
+ "Subject": "6",
+"Wt":     80,
+"Dose":      4,
+"Time":   12.1,
+"conc":   2.78 
+},
+{
+ "Subject": "6",
+"Wt":     80,
+"Dose":      4,
+"Time":  23.85,
+"conc":   0.92 
+},
+{
+ "Subject": "7",
+"Wt":   64.6,
+"Dose":   4.95,
+"Time":      0,
+"conc":   0.15 
+},
+{
+ "Subject": "7",
+"Wt":   64.6,
+"Dose":   4.95,
+"Time":   0.25,
+"conc":   0.85 
+},
+{
+ "Subject": "7",
+"Wt":   64.6,
+"Dose":   4.95,
+"Time":    0.5,
+"conc":   2.35 
+},
+{
+ "Subject": "7",
+"Wt":   64.6,
+"Dose":   4.95,
+"Time":   1.02,
+"conc":   5.02 
+},
+{
+ "Subject": "7",
+"Wt":   64.6,
+"Dose":   4.95,
+"Time":   2.02,
+"conc":   6.58 
+},
+{
+ "Subject": "7",
+"Wt":   64.6,
+"Dose":   4.95,
+"Time":   3.48,
+"conc":   7.09 
+},
+{
+ "Subject": "7",
+"Wt":   64.6,
+"Dose":   4.95,
+"Time":      5,
+"conc":   6.66 
+},
+{
+ "Subject": "7",
+"Wt":   64.6,
+"Dose":   4.95,
+"Time":   6.98,
+"conc":   5.25 
+},
+{
+ "Subject": "7",
+"Wt":   64.6,
+"Dose":   4.95,
+"Time":      9,
+"conc":   4.39 
+},
+{
+ "Subject": "7",
+"Wt":   64.6,
+"Dose":   4.95,
+"Time":  12.05,
+"conc":   3.53 
+},
+{
+ "Subject": "7",
+"Wt":   64.6,
+"Dose":   4.95,
+"Time":  24.22,
+"conc":   1.15 
+},
+{
+ "Subject": "8",
+"Wt":   70.5,
+"Dose":   4.53,
+"Time":      0,
+"conc":      0 
+},
+{
+ "Subject": "8",
+"Wt":   70.5,
+"Dose":   4.53,
+"Time":   0.25,
+"conc":   3.05 
+},
+{
+ "Subject": "8",
+"Wt":   70.5,
+"Dose":   4.53,
+"Time":   0.52,
+"conc":   3.05 
+},
+{
+ "Subject": "8",
+"Wt":   70.5,
+"Dose":   4.53,
+"Time":   0.98,
+"conc":   7.31 
+},
+{
+ "Subject": "8",
+"Wt":   70.5,
+"Dose":   4.53,
+"Time":   2.02,
+"conc":   7.56 
+},
+{
+ "Subject": "8",
+"Wt":   70.5,
+"Dose":   4.53,
+"Time":   3.53,
+"conc":   6.59 
+},
+{
+ "Subject": "8",
+"Wt":   70.5,
+"Dose":   4.53,
+"Time":   5.05,
+"conc":   5.88 
+},
+{
+ "Subject": "8",
+"Wt":   70.5,
+"Dose":   4.53,
+"Time":   7.15,
+"conc":   4.73 
+},
+{
+ "Subject": "8",
+"Wt":   70.5,
+"Dose":   4.53,
+"Time":   9.07,
+"conc":   4.57 
+},
+{
+ "Subject": "8",
+"Wt":   70.5,
+"Dose":   4.53,
+"Time":   12.1,
+"conc":      3 
+},
+{
+ "Subject": "8",
+"Wt":   70.5,
+"Dose":   4.53,
+"Time":  24.12,
+"conc":   1.25 
+},
+{
+ "Subject": "9",
+"Wt":   86.4,
+"Dose":    3.1,
+"Time":      0,
+"conc":      0 
+},
+{
+ "Subject": "9",
+"Wt":   86.4,
+"Dose":    3.1,
+"Time":    0.3,
+"conc":   7.37 
+},
+{
+ "Subject": "9",
+"Wt":   86.4,
+"Dose":    3.1,
+"Time":   0.63,
+"conc":   9.03 
+},
+{
+ "Subject": "9",
+"Wt":   86.4,
+"Dose":    3.1,
+"Time":   1.05,
+"conc":   7.14 
+},
+{
+ "Subject": "9",
+"Wt":   86.4,
+"Dose":    3.1,
+"Time":   2.02,
+"conc":   6.33 
+},
+{
+ "Subject": "9",
+"Wt":   86.4,
+"Dose":    3.1,
+"Time":   3.53,
+"conc":   5.66 
+},
+{
+ "Subject": "9",
+"Wt":   86.4,
+"Dose":    3.1,
+"Time":   5.02,
+"conc":   5.67 
+},
+{
+ "Subject": "9",
+"Wt":   86.4,
+"Dose":    3.1,
+"Time":   7.17,
+"conc":   4.24 
+},
+{
+ "Subject": "9",
+"Wt":   86.4,
+"Dose":    3.1,
+"Time":    8.8,
+"conc":   4.11 
+},
+{
+ "Subject": "9",
+"Wt":   86.4,
+"Dose":    3.1,
+"Time":   11.6,
+"conc":   3.16 
+},
+{
+ "Subject": "9",
+"Wt":   86.4,
+"Dose":    3.1,
+"Time":  24.43,
+"conc":   1.12 
+},
+{
+ "Subject": "10",
+"Wt":   58.2,
+"Dose":    5.5,
+"Time":      0,
+"conc":   0.24 
+},
+{
+ "Subject": "10",
+"Wt":   58.2,
+"Dose":    5.5,
+"Time":   0.37,
+"conc":   2.89 
+},
+{
+ "Subject": "10",
+"Wt":   58.2,
+"Dose":    5.5,
+"Time":   0.77,
+"conc":   5.22 
+},
+{
+ "Subject": "10",
+"Wt":   58.2,
+"Dose":    5.5,
+"Time":   1.02,
+"conc":   6.41 
+},
+{
+ "Subject": "10",
+"Wt":   58.2,
+"Dose":    5.5,
+"Time":   2.05,
+"conc":   7.83 
+},
+{
+ "Subject": "10",
+"Wt":   58.2,
+"Dose":    5.5,
+"Time":   3.55,
+"conc":  10.21 
+},
+{
+ "Subject": "10",
+"Wt":   58.2,
+"Dose":    5.5,
+"Time":   5.05,
+"conc":   9.18 
+},
+{
+ "Subject": "10",
+"Wt":   58.2,
+"Dose":    5.5,
+"Time":   7.08,
+"conc":   8.02 
+},
+{
+ "Subject": "10",
+"Wt":   58.2,
+"Dose":    5.5,
+"Time":   9.38,
+"conc":   7.14 
+},
+{
+ "Subject": "10",
+"Wt":   58.2,
+"Dose":    5.5,
+"Time":   12.1,
+"conc":   5.68 
+},
+{
+ "Subject": "10",
+"Wt":   58.2,
+"Dose":    5.5,
+"Time":   23.7,
+"conc":   2.42 
+},
+{
+ "Subject": "11",
+"Wt":     65,
+"Dose":   4.92,
+"Time":      0,
+"conc":      0 
+},
+{
+ "Subject": "11",
+"Wt":     65,
+"Dose":   4.92,
+"Time":   0.25,
+"conc":   4.86 
+},
+{
+ "Subject": "11",
+"Wt":     65,
+"Dose":   4.92,
+"Time":    0.5,
+"conc":   7.24 
+},
+{
+ "Subject": "11",
+"Wt":     65,
+"Dose":   4.92,
+"Time":   0.98,
+"conc":      8 
+},
+{
+ "Subject": "11",
+"Wt":     65,
+"Dose":   4.92,
+"Time":   1.98,
+"conc":   6.81 
+},
+{
+ "Subject": "11",
+"Wt":     65,
+"Dose":   4.92,
+"Time":    3.6,
+"conc":   5.87 
+},
+{
+ "Subject": "11",
+"Wt":     65,
+"Dose":   4.92,
+"Time":   5.02,
+"conc":   5.22 
+},
+{
+ "Subject": "11",
+"Wt":     65,
+"Dose":   4.92,
+"Time":   7.03,
+"conc":   4.45 
+},
+{
+ "Subject": "11",
+"Wt":     65,
+"Dose":   4.92,
+"Time":   9.03,
+"conc":   3.62 
+},
+{
+ "Subject": "11",
+"Wt":     65,
+"Dose":   4.92,
+"Time":  12.12,
+"conc":   2.69 
+},
+{
+ "Subject": "11",
+"Wt":     65,
+"Dose":   4.92,
+"Time":  24.08,
+"conc":   0.86 
+},
+{
+ "Subject": "12",
+"Wt":   60.5,
+"Dose":    5.3,
+"Time":      0,
+"conc":      0 
+},
+{
+ "Subject": "12",
+"Wt":   60.5,
+"Dose":    5.3,
+"Time":   0.25,
+"conc":   1.25 
+},
+{
+ "Subject": "12",
+"Wt":   60.5,
+"Dose":    5.3,
+"Time":    0.5,
+"conc":   3.96 
+},
+{
+ "Subject": "12",
+"Wt":   60.5,
+"Dose":    5.3,
+"Time":      1,
+"conc":   7.82 
+},
+{
+ "Subject": "12",
+"Wt":   60.5,
+"Dose":    5.3,
+"Time":      2,
+"conc":   9.72 
+},
+{
+ "Subject": "12",
+"Wt":   60.5,
+"Dose":    5.3,
+"Time":   3.52,
+"conc":   9.75 
+},
+{
+ "Subject": "12",
+"Wt":   60.5,
+"Dose":    5.3,
+"Time":   5.07,
+"conc":   8.57 
+},
+{
+ "Subject": "12",
+"Wt":   60.5,
+"Dose":    5.3,
+"Time":   7.07,
+"conc":   6.59 
+},
+{
+ "Subject": "12",
+"Wt":   60.5,
+"Dose":    5.3,
+"Time":   9.03,
+"conc":   6.11 
+},
+{
+ "Subject": "12",
+"Wt":   60.5,
+"Dose":    5.3,
+"Time":  12.05,
+"conc":   4.57 
+},
+{
+ "Subject": "12",
+"Wt":   60.5,
+"Dose":    5.3,
+"Time":  24.15,
+"conc":   1.17 
+} 
+],
+"range": [ "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12" ],
+"colorby": "Subject",
+"colors": [ "#0B0609", "#1BA9D2", "#39A9C1", "#575F4F", "#5C4421", "#536F5F", "#855566", "#E40719", "#FF2C00", "#FFB400", "#EFFF52", "#FEFEFE" ],
+"id": "chartb3d91cf18846" 
+}
+var getColors = d3.scale.linear()
+  .domain(params.range)
+  .range(params.colors)
+  .interpolate(d3.interpolateLab);
+
+var color = function(d) { return getColors(d[params.colorby]); };
+
+  d3.parcoords()("#" + params.dom)
+    .margin(params.padding)
+    .data(params.data)
+    .color(color)
+    .alpha(0.4)
+    .render()
+    .shadows()
+    .brushable()  // enable brushing
+    .reorderable(); // enable moving axes
+</script>
+    
+    <script></script>    
+  </body>
+</html>
