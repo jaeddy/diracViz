@@ -1,57 +1,41 @@
 PackratFormat: 1.4
 PackratVersion: 0.3.0.103
 RVersion: 3.1.1
-Repos: CRAN=http://cran.rstudio.com
+Repos: CRAN=http://cran.rstudio.com,
+    BioCsoft=http://bioconductor.org/packages/2.14/bioc,
+    BioCann=http://bioconductor.org/packages/2.14/data/annotation,
+    BioCexp=http://bioconductor.org/packages/2.14/data/experiment,
+    BioCextra=http://bioconductor.org/packages/2.14/extra
 
-Package: Formula
+Package: abind
 Source: CRAN
-Version: 1.1-2
-Hash: 588ba867a46d199c04527dc7083a1f0b
+Version: 1.4-0
+Hash: 5007322a6d081332d1d54b077a82bdf0
 
-Package: Hmisc
-Source: CRAN
-Version: 3.14-4
-Hash: 5f8029a6a25b12ca0cf92924d928a791
-Requires: Formula, latticeExtra
+Package: BiocGenerics
+Source: Bioconductor
+Version: 0.10.0
+Hash: b6c70fc618424d8147d06f1b97858ceb
 
-Package: RColorBrewer
-Source: CRAN
-Version: 1.0-5
-Hash: 6a849b729bec970204ca88b96906adbc
-
-Package: RCurl
-Source: CRAN
-Version: 1.95-4.1
-Requires: bitops
-
-Package: RJSONIO
-Source: CRAN
-Version: 1.2-0.2
-Hash: f4aea783dfb279b89a0d735727fb46c5
-
-Package: Rcpp
-Source: CRAN
-Version: 0.11.2
-Hash: ef2b1a5e45d1461bd720e4ebbe48e601
-
-Package: SparseM
-Source: CRAN
-Version: 1.03
-Hash: f57f6ecac99b0d94d8f9d97ada22df93
-
-Package: TH.data
-Source: CRAN
-Version: 1.0-3
-Hash: 2ca64b7e908cd3fc518d512ae134c327
+Package: BiocInstaller
+Source: Bioconductor
+Version: 1.14.2
+Hash: fb0ba2e5efc6072113945ede070cb4a3
 
 Package: bitops
 Source: CRAN
 Version: 1.0-6
+Hash: cb26464a8321628636b547518994c931
 
 Package: colorspace
 Source: CRAN
 Version: 1.2-4
 Hash: b775bd08a10f968fef582304b7c3ab9c
+
+Package: Defaults
+Source: CRAN
+Version: 1.1-1
+Hash: 0e04605cd2933beea2c04700ea69e220
 
 Package: dichromat
 Source: CRAN
@@ -63,6 +47,12 @@ Source: CRAN
 Version: 0.6.4
 Hash: e4bf0e79b15a352510aff0de905d31e2
 
+Package: EBImage
+Source: Bioconductor
+Version: 4.6.0
+Hash: b14d6ef17d93d21cda2318a86599f142
+Requires: abind, BiocGenerics, jpeg, locfit, png, tiff
+
 Package: evaluate
 Source: CRAN
 Version: 0.5.5
@@ -73,6 +63,11 @@ Package: formatR
 Source: CRAN
 Version: 0.10
 Hash: 20331f0a1a9c5f31541b34ecd9aed520
+
+Package: Formula
+Source: CRAN
+Version: 1.1-2
+Hash: 588ba867a46d199c04527dc7083a1f0b
 
 Package: ggplot2
 Source: CRAN
@@ -95,6 +90,17 @@ Source: CRAN
 Version: 0.3
 Hash: 7c85a9b7d07a75e2d8ca74f9467fee21
 
+Package: Hmisc
+Source: CRAN
+Version: 3.14-4
+Hash: 5f8029a6a25b12ca0cf92924d928a791
+Requires: Formula, latticeExtra
+
+Package: jpeg
+Source: CRAN
+Version: 0.1-8
+Hash: 2a96df07e30724f8bb773e4f78c634c6
+
 Package: knitr
 Source: CRAN
 Version: 1.6
@@ -111,6 +117,11 @@ Source: CRAN
 Version: 0.6-26
 Hash: 2c59a30bb9d9d4651b913b828dca2640
 Requires: RColorBrewer
+
+Package: locfit
+Source: CRAN
+Version: 1.5-9.1
+Hash: f50f72e2b1a3ae02e591bceab01bcf27
 
 Package: mapproj
 Source: CRAN
@@ -144,7 +155,7 @@ Package: multcomp
 Source: CRAN
 Version: 1.3-4
 Hash: 0ead2c81fdd973da5fad1af155442d50
-Requires: TH.data, mvtnorm, sandwich
+Requires: mvtnorm, sandwich, TH.data
 
 Package: munsell
 Source: CRAN
@@ -172,10 +183,21 @@ Version: 1.8.1
 Hash: be21bad411e628f810a92212e17b5be7
 Requires: Rcpp
 
+Package: png
+Source: CRAN
+Version: 0.1-7
+Hash: 7559dcd0a9f188351986d0494ec1516d
+
 Package: proto
 Source: CRAN
 Version: 0.3-10
 Hash: 668a9e87cedbdc5f56c396edf1bd2648
+
+Package: quantmod
+Source: CRAN
+Version: 0.4-0
+Hash: 09dc5727c68cb4cb4a625f72edfff91f
+Requires: Defaults, TTR, xts, zoo
 
 Package: quantreg
 Source: CRAN
@@ -183,21 +205,61 @@ Version: 5.05
 Hash: b747a8a729600804a034209edffd648e
 Requires: SparseM
 
+Package: rblocks
+Source: github
+Version: 0.1.1
+Hash: a85e748390c17c752cc0ba961120d1e784fb1956
+GithubRepo: rblocks
+GithubUsername: ramnathv
+GithubRef: master
+GithubSha1: a85e748390c17c752cc0ba961120d1e784fb1956
+
 Package: rCharts
 Source: github
 Version: 0.4.5
 Hash: 47e2c0658806888bbb860c780d537751a40f57ea
-Requires: RCurl, RJSONIO, plyr, whisker, yaml
+Requires: plyr, RCurl, RJSONIO, whisker, yaml
 GithubRepo: rCharts
 GithubUsername: ramnathv
 GithubRef: master
 GithubSha1: 47e2c0658806888bbb860c780d537751a40f57ea
 
+Package: RColorBrewer
+Source: CRAN
+Version: 1.0-5
+Hash: 6a849b729bec970204ca88b96906adbc
+
+Package: Rcpp
+Source: CRAN
+Version: 0.11.2
+Hash: ef2b1a5e45d1461bd720e4ebbe48e601
+
+Package: RCurl
+Source: CRAN
+Version: 1.95-4.1
+Hash: 42aee7966014fa536adf90df9d5c00cc
+Requires: bitops
+
 Package: reshape2
 Source: CRAN
 Version: 1.4
 Hash: b210925e978fd52ad5eb0822a353e7ce
-Requires: Rcpp, plyr, stringr
+Requires: plyr, Rcpp, stringr
+
+Package: RJSONIO
+Source: CRAN
+Version: 1.2-0.2
+Hash: f4aea783dfb279b89a0d735727fb46c5
+
+Package: rPlotter
+Source: github
+Version: 0.0.7
+Hash: ea6c614f7d88d74d9a1a492e8e73e910296f3ef6
+Requires: dichromat, EBImage, ggplot2, rblocks, reshape2, stringr
+GithubRepo: rPlotter
+GithubUsername: woobe
+GithubRef: master
+GithubSha1: ea6c614f7d88d74d9a1a492e8e73e910296f3ef6
 
 Package: sandwich
 Source: CRAN
@@ -209,12 +271,17 @@ Package: scales
 Source: CRAN
 Version: 0.2.4
 Hash: b8b1af97bd07818605223060386b00dd
-Requires: RColorBrewer, dichromat, labeling, munsell, plyr
+Requires: dichromat, labeling, munsell, plyr, RColorBrewer
 
 Package: sp
 Source: CRAN
 Version: 1.0-15
 Hash: ccab055c2835c81a8add23517d8b6219
+
+Package: SparseM
+Source: CRAN
+Version: 1.03
+Hash: f57f6ecac99b0d94d8f9d97ada22df93
 
 Package: stringr
 Source: CRAN
@@ -227,9 +294,32 @@ Version: 0.8.1
 Hash: f296283e62e2ff299efa01e26cfc3eb1
 Requires: digest
 
+Package: TH.data
+Source: CRAN
+Version: 1.0-3
+Hash: 2ca64b7e908cd3fc518d512ae134c327
+
+Package: tiff
+Source: CRAN
+Version: 0.1-5
+Hash: bff6221f2ff93a5e6ddaf4314f97251a
+
+Package: TTR
+Source: CRAN
+Version: 0.22-0
+Hash: b799be4cd72523b6b81692ba52194b94
+Requires: xts
+
 Package: whisker
 Source: CRAN
 Version: 0.3-2
+Hash: 186ab2937fec1694c8a63009a2389c4e
+
+Package: xts
+Source: CRAN
+Version: 0.9-7
+Hash: bbb3e80498bf1938b91302693c7926b2
+Requires: zoo
 
 Package: yaml
 Source: CRAN
