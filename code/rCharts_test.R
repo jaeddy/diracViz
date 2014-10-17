@@ -25,7 +25,7 @@ n1
 # biocLite("EBImage")
 
 packrat::install_github("ramnathv/rCharts@dev")
-packrat::install_github("rblocks", "ramnathv")
+packrat::install_github("rblocks/ramnathv")
 packrat::install_github("woobe/rPlotter")
 
 #library(rCharts)
