@@ -1,4 +1,4 @@
-library(rCharts)
+#library(rCharts)
 
 # Testing basic functionality of rCharts library with online examples
 
@@ -28,8 +28,8 @@ packrat::install_github("ramnathv/rCharts@dev")
 packrat::install_github("rblocks", "ramnathv")
 packrat::install_github("woobe/rPlotter")
 
-library(rCharts)
-library(rPlotter)
+#library(rCharts)
+#library(rPlotter)
 
 ## Using Theoph as the demo data.
 dat <- Theoph
