@@ -11,7 +11,7 @@ shinyUI(fluidPage(
     titlePanel("diracViz App"),
     
     fluidRow(
-        column(3,
+        column(4,
                h3("Load Data"),
                selectInput("data",
                            "Select data set:",
@@ -21,11 +21,11 @@ shinyUI(fluidPage(
                             "Load data"),
                hr(),
                fluidRow(
-                   verbatimTextOutput("value")
+                   tableOutput("value")
                    )
                ),
         
-        column(9,
+        column(8,
                h3("DIRAC Pathway Analysis"),
                tabsetPanel(
                    tabPanel("Results",

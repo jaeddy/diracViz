@@ -14,17 +14,13 @@ shinyServer(function(input, output, session) {
         input$data
     })
     
-    output$value <- renderPrint({
-        input$load
-        isolate(input$data)
+    getData <- observe({
+        if (input$load > 0) {
+            dataSetName <- input$data
+            load_data(dataSetName)
+            exprsdata <- clean_data(exprsdata)
+            df <- summarize_data(exprsdata, phenotypes, phenotypesLevels)
+            output$value <- renderTable({ df })
+        }
     })
-#     getData <- observe({
-#         if (input$load > 0) {
-#             load_data(input$data)
-#             output$value <- renderPrint({ input$data })
-# #             load_data(input$data)
-# #             exprsdata <- clean_data(exprs_dat)
-# #             df <- summarize_data(exprsdata, phenotypes, phenotypesLevels)
-#         }
-#     })
 })

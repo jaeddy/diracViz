@@ -12,16 +12,16 @@ clean_data <- function(exprsdata) {
 
 # Summarize data set
 summarize_data <- function(exprsdata, phenotypes, phenotypesLevels) {
-    numSamples <- c(sum(phenotypes == 0), 
+    numSamples <- as.character(c(sum(phenotypes == 0), 
                     sum(phenotypes == 1),
-                    length(phenotypes))
-    numGenes <- c(NA, NA, nrow(exprsdata))
+                    length(phenotypes)))
+    numGenes <- c("NA", "NA", nrow(exprsdata))
     label <- c(phenotypesLevels["0"], 
                phenotypesLevels["1"],
-               dataSetName)
+               NA)
     df <- data.frame(label = label,
-                     numSamples = numSamples,
-                     numGenes = numGenes)
-    row.names(df) <- c("class1", "class2", "fullData")
+                     samples = numSamples,
+                     genes = numGenes)
+    row.names(df) <- c("class1", "class2", "total")
     df
 }
