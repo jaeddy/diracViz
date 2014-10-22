@@ -1,4 +1,7 @@
 
+### RStudio files ###
+#####################
+
 packrat/lib*/
 .Rproj.user
 .Rhistory
