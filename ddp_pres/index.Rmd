@@ -1,0 +1,43 @@
+---
+title       : DIRACExplorer for Biological Pathway Analysis
+subtitle    : Interactive analysis and visualization of gene expression in 
+              biological pathways with Differential Rank Conservation
+author      : James Eddy
+job         : 
+framework   : io2012        # {io2012, html5slides, shower, dzslides, ...}
+highlighter : highlight.js  # {highlight.js, prettify, highlight}
+hitheme     : tomorrow      # 
+widgets     : []            # {mathjax, quiz, bootstrap}
+mode        : selfcontained # {standalone, draft}
+knit        : slidify::knit2slides
+---
+
+## Pathway analysis in disease genomics
+
++ Modern genomics studies obtain measurements for tens of thousands of
+individual genes across dozens to hundreds of samples (patients, cells, etc.)  
++ Computational biologists apply statistics and machine learning to these 
+large-scale "gene expression" datasets to aid in disease classification or 
+diagnosis  
++ Something about pathway analysis...  
+
+--- .class #id 
+
+## Quantifying pathway regulation with DIRAC
+
++ Differential Rank Conservation (DIRAC)**cite** is an approach I developed in my PhD 
+to examine how within-pathway gene rankings change from sample-to-sample
++ For example, (pathway example with gene ranks)
++ Parts of the DIRAC method were recently published in the `GSReg` package in
+Bioconductor
+
+---
+
+## Identifying dysregulated pathways with DIRACExplorer
+
+---
+
+## Visualizing pathway dysregulation with DIRACExplorer
+
+---
+
