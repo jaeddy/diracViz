@@ -27,17 +27,30 @@ diagnosis
 
 + Differential Rank Conservation (DIRAC)**cite** is an approach I developed in my PhD 
 to examine how within-pathway gene rankings change from sample-to-sample
-+ For example, (pathway example with gene ranks)
 + Parts of the DIRAC method were recently published in the `GSReg` package in
 Bioconductor
++ For example, (pathway example with gene ranks)
+(add R code here to extract genes, expression values, and ranks for a pathway)
 
 ---
 
-## Identifying dysregulated pathways with DIRACExplorer
+## Identifying dysregulated pathways with diracExplorer
+
++ If a pathway exhibits a significant increase or decrease in consistency of
+sample-to-sample ranking between populations, it is considered to be 
+"dysregulated"
++ The diracExplorer app allows researchers to easily identify the most
+dysregulated pathways between phenotypes (e.g., normal or cancer) in disease
+datasets
+(add R code to demonstrate?)
 
 ---
 
-## Visualizing pathway dysregulation with DIRACExplorer
+## Visualizing pathway dysregulation with diracExplorer
+
++ Using diracExplorer, researchers can also select individual pathways and 
+visualize their gene expression patterns across samples in the data  
++ Say something about the benefit of visualizing pathways...
 
 ---
 
