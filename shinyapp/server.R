@@ -1,6 +1,7 @@
 library(shiny)
 library(GSReg)
 library(GSBenchMark)
+library(dplyr)
 library(rCharts)
 
 source("helpers.R")

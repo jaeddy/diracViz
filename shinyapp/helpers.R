@@ -25,3 +25,27 @@ summarize_data <- function(exprsdata, phenotypes, phenotypesLevels) {
     row.names(df) <- c("class1", "class2", "total")
     df
 }
+
+# Map gene expression values to an individual pathway
+map_gene_to_gs <- function(gs, gene_mat) {
+    gene_mat %>%
+        data.frame() %>%
+        mutate(gene = as.factor(row.names(exprsdata))) %>%
+        filter(gene %in% diracpathways[[gs]]) %>%
+        group_by(gene) %>%
+        summarise_each_(funs(max), list(quote(-gene)))
+}
+
+# Label classes and samples
+label_samples <- function(gs_df, phenotypes) {
+    classes <- as.numeric(phenotypes)
+    labels <- paste0(classes, 
+                     rep("_", length(classes)),
+                     as.character(c(1:sum(classes == 1), 
+                                    1:sum(classes == 2))))
+    labels <- c("gene", labels)
+    names(gs_df) <- labels    
+    row.names(gs_df) <- gs_df$gene
+    gs_df %>%
+        select(-gene)
+}
