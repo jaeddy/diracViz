@@ -61,6 +61,15 @@ shinyServer(function(input, output, session) {
         }  
     })
     
+    output$topPathways <- renderDataTable({
+        input$run
+        
+        if (input$run > 0) {
+            results <- isolate(data$results)
+            format_results(results)
+        }
+    }, options = list(pageLength = 10))
+    
     output$pathwayName <- renderDataTable({
         input$plot
         
@@ -74,12 +83,16 @@ shinyServer(function(input, output, session) {
         }
     }, options = list(pageLength = 10))
     
-    output$topPathways <- renderDataTable({
-        input$run
+    output$pathwayViz <- renderChart({
+        input$plot
         
-        if (input$run > 0) {
-            results <- isolate(data$results)
-            format_results(results)
+        if (input$plot > 0) {
+            pathway <- isolate(input$pathway)
+            gene_mat <- isolate(data$exprsdata)
+            phenotypes <- isolate(data$phenotypes)
+            
+            pathway_df <- map_genes_to_pathway(pathway, gene_mat)
+            make_plot(pathway_df, "1")
         }
-    }, options = list(pageLength = 10))
+    })
 })

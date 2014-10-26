@@ -62,11 +62,36 @@ label_samples <- function(pathway_df, phenotypes) {
     classes <- as.numeric(phenotypes)
     labels <- paste0(classes, 
                      rep("_", length(classes)),
-                     as.character(c(1:sum(classes == 1), 
-                                    1:sum(classes == 2))))
+                     as.character(c(1:sum(classes == unique(classes)[1]), 
+                                    1:sum(classes == unique(classes)[2]))))
     labels <- c("gene", labels)
     names(pathway_df) <- labels    
     row.names(pathway_df) <- pathway_df$gene
-    pathway_df %>%
-        select(-gene)
+    pathway_df
+}
+
+# Pull out and format data for specified class
+get_class_df <- function(pathway_df, class = "1") {
+    genes <- pathway_df %>%
+        select(gene)
+    class_df <- pathway_df %>%
+        select(starts_with(class)) %>%
+        mutate_each(funs(rank))
+    E_class <- rowMeans(as.matrix(class_df))
+    cbind(gene = genes, E_rank_class = E_class, class_df)
+}
+
+# Create parallel coordinates plot
+make_plot <- function(pathway_df, class) {
+    class_df <- get_class_df(pathway_df, class)
+    p <- rCharts$new()
+    p$setLib("http://rcharts.github.io/parcoords/libraries/widgets/parcoords")
+    p$set(padding = list(top = 24, left = 0, bottom = 12, right = 0))
+    p$set(
+        data = toJSONArray(class_df, json = F),
+        colorby = 'E_rank_class',
+        range = c(1, nrow(test)),
+        colors = c('steelblue', 'brown')
+    )
+    p
 }
