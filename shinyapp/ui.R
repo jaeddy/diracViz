@@ -18,7 +18,14 @@ shinyUI(fluidPage(
                    # Select and load expression dataset
                    fluidRow(
                        h4("Data Selection"),
-                       # Add explanatory text
+                       p(em(paste("Each of the following datasets contains", 
+                               "'expression' measurements for thousands of",
+                               "genes across dozens of patient samples.",
+                               "Samples in each dataset are grouped into two",
+                               "classes, according to their phenotype",
+                               "(i.e., disease vs. normal, severity of disease",
+                               "etc.).")), 
+                         style = "font-size: 10pt"),
                        selectizeInput("dataset",
                                    NULL,
                                    choices = GSBenchMark.Dataset.names,
@@ -62,7 +69,9 @@ shinyUI(fluidPage(
         column(8,
                h3("DIRAC Pathway Analysis"),
                tabsetPanel(
-                   # Add a home/overview tab
+                   tabPanel("Home",
+                            h4("Getting Started")
+                            ),
                    tabPanel("Results",
                             h4("Top pathways..."),
                             textOutput("currentData"),
