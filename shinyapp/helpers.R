@@ -26,7 +26,7 @@ summarize_data <- function(exprsdata, phenotypes, phenotypesLevels) {
     df
 }
 
-# Select significant results
+# Collect DIRAC results
 collect_results <- function(diracResult) {
     dysregulatedPathways <- rbind(diracResult$mu1,
                                   diracResult$mu2)
@@ -34,7 +34,6 @@ collect_results <- function(diracResult) {
     rownames(dysregulatedPathways) <- c("mu1", "mu2")
     t(dysregulatedPathways)
 }
-
 
 # Format DIRAC results
 format_results <- function(results) {
@@ -49,25 +48,25 @@ format_results <- function(results) {
 }
 
 # Map gene expression values to an individual pathway
-map_gene_to_gs <- function(gs, gene_mat) {
+map_genes_to_pathway <- function(pathway, gene_mat) {
     gene_mat %>%
         data.frame() %>%
         mutate(gene = as.factor(row.names(exprsdata))) %>%
-        filter(gene %in% diracpathways[[gs]]) %>%
+        filter(gene %in% diracpathways[[pathway]]) %>%
         group_by(gene) %>%
         summarise_each_(funs(max), list(quote(-gene)))
 }
 
 # Label classes and samples
-label_samples <- function(gs_df, phenotypes) {
+label_samples <- function(pathway_df, phenotypes) {
     classes <- as.numeric(phenotypes)
     labels <- paste0(classes, 
                      rep("_", length(classes)),
                      as.character(c(1:sum(classes == 1), 
                                     1:sum(classes == 2))))
     labels <- c("gene", labels)
-    names(gs_df) <- labels    
-    row.names(gs_df) <- gs_df$gene
-    gs_df %>%
+    names(pathway_df) <- labels    
+    row.names(pathway_df) <- pathway_df$gene
+    pathway_df %>%
         select(-gene)
 }

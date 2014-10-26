@@ -35,15 +35,6 @@ shinyServer(function(input, output, session) {
         }       
     })
     
-    output$size <- renderText({
-        input$load
-        
-        if (input$load > 0) {
-            exprsdata <- data$exprsdata
-            nrow(exprsdata)
-        }
-    })
-    
     runDirac <- observe({
         if (input$run > 0) {
             Nperm <- 0
@@ -56,8 +47,32 @@ shinyServer(function(input, output, session) {
                                                 Nperm, minGeneNum)
             
             data$results <- collect_results(diracResult)
+            
+            updateSelectizeInput(session, "pathway",
+                              "Select pathway:",
+                              choices = row.names(data$results),
+                              options = list(
+                                  placeholder = "...",
+                                  onInitialize = 
+                                      I(paste0('function()',
+                                               '{ this.setValue(""); }'))                          
+                              )
+            )
         }  
     })
+    
+    output$pathwayName <- renderDataTable({
+        input$plot
+        
+        if (input$plot > 0) {
+            pathway <- isolate(input$pathway)
+            gene_mat <- isolate(data$exprsdata)
+            phenotypes <- isolate(data$phenotypes)
+            
+            pathway_df <- map_genes_to_pathway(pathway, gene_mat)
+            pathway_df
+        }
+    }, options = list(pageLength = 10))
     
     output$topPathways <- renderDataTable({
         input$run

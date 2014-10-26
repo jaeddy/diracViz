@@ -66,11 +66,24 @@ shinyUI(fluidPage(
                    tabPanel("Results",
                             h4("Top pathways..."),
                             textOutput("currentData"),
-                            textOutput("size"),
                             br(),
                             dataTableOutput("topPathways")
                             ),
-                   tabPanel("Pathway Viz"
+                   tabPanel("Pathway Viz",
+                            selectizeInput("pathway",
+                                           "Select pathway:",
+                                           choices = NULL,
+                                           options = list(
+                                               placeholder = "No results yet...",
+                                               onInitialize = 
+                                                   I(paste0('function()',
+                                                            '{ this.setValue(""); }'))
+                                           )
+                            ),
+                            actionButton("plot",
+                                         "Visualize Pathway"),
+                            hr(),
+                            dataTableOutput("pathwayName")
                             ),
                    tabPanel("Info"
                             )
