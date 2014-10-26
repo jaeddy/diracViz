@@ -46,7 +46,7 @@ shinyServer(function(input, output, session) {
     
     runDirac <- observe({
         if (input$run > 0) {
-            Nperm <- input$Nperm
+            Nperm <- 0
             minGeneNum <- input$minGeneNum
             exprsdata <- data$exprsdata
             phenotypes <- data$phenotypes

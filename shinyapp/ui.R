@@ -43,11 +43,11 @@ shinyUI(fluidPage(
                    # Set parameters for DIRAC
                    fluidRow(
                        h4("DIRAC Settings"),
-                       # Add explanatory text
-                       sliderInput("Nperm", 
-                                   "Num. permutations:",
-                                   min = 1, max = 10000, value = 1),
-                       br(),
+                       # Removing permutation option for now
+#                        sliderInput("Nperm", 
+#                                    "Num. permutations:",
+#                                    min = 1, max = 10000, value = 1),
+#                        br(),
                        # Add explanatory text
                        sliderInput("minGeneNum", 
                                    "Min. num. genes per pathway",

@@ -28,9 +28,8 @@ summarize_data <- function(exprsdata, phenotypes, phenotypesLevels) {
 
 # Select significant results
 collect_results <- function(diracResult) {
-    sigPathways <- which(diracResult$pvalues < 0.05)
-    dysregulatedPathways <- rbind(diracResult$mu1[sigPathways],
-                                  diracResult$mu2[sigPathways])
+    dysregulatedPathways <- rbind(diracResult$mu1,
+                                  diracResult$mu2)
     
     rownames(dysregulatedPathways) <- c("mu1", "mu2")
     t(dysregulatedPathways)
@@ -44,7 +43,8 @@ format_results <- function(results) {
                           pathwayTable) %>%
         mutate(mu1 = 1 - mu1,
                mu2 = 1 - mu2,
-               diff = mu1 - mu2)
+               diff = mu1 - mu2) %>%
+        arrange(desc(abs(diff)))
     pathwayTable
 }
 
