@@ -26,6 +26,28 @@ summarize_data <- function(exprsdata, phenotypes, phenotypesLevels) {
     df
 }
 
+# Select significant results
+collect_results <- function(diracResult) {
+    sigPathways <- which(diracResult$pvalues < 0.05)
+    dysregulatedPathways <- rbind(diracResult$mu1[sigPathways],
+                                  diracResult$mu2[sigPathways])
+    
+    rownames(dysregulatedPathways) <- c("mu1", "mu2")
+    t(dysregulatedPathways)
+}
+
+
+# Format DIRAC results
+format_results <- function(results) {
+    pathwayTable <- data.frame(results)
+    pathwayTable <- cbind(pathway = row.names(pathwayTable),
+                          pathwayTable) %>%
+        mutate(mu1 = 1 - mu1,
+               mu2 = 1 - mu2,
+               diff = mu1 - mu2)
+    pathwayTable
+}
+
 # Map gene expression values to an individual pathway
 map_gene_to_gs <- function(gs, gene_mat) {
     gene_mat %>%

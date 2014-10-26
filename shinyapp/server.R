@@ -55,14 +55,7 @@ shinyServer(function(input, output, session) {
                                                 diracpathways, phenotypes, 
                                                 Nperm, minGeneNum)
             
-            sigPathways <- which(diracResult$pvalues < 0.05)
-            dysregulatedPathways <- rbind(diracResult$mu1[sigPathways],
-                                          diracResult$mu2[sigPathways], 
-                                          diracResult$pvalues[sigPathways])
-
-            rownames(dysregulatedPathways) <- c("mu1", "mu2", "pvalue")
-            
-            data$results <- t(dysregulatedPathways)
+            data$results <- collect_results(diracResult)
         }  
     })
     
@@ -71,12 +64,7 @@ shinyServer(function(input, output, session) {
         
         if (input$run > 0) {
             results <- isolate(data$results)
-            pathwayTable <- data.frame(results)
-            pathwayTable <- cbind(pathway = row.names(pathwayTable),
-                                  pathwayTable)
-            pathwayTable$mu1 <- 1 - pathwayTable$mu1
-            pathwayTable$mu2 <- 1 - pathwayTable$mu2
-            pathwayTable
+            format_results(results)
         }
-    })
+    }, options = list(pageLength = 10))
 })
