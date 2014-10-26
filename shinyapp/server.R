@@ -68,22 +68,9 @@ shinyServer(function(input, output, session) {
             results <- isolate(data$results)
             format_results(results)
         }
-    }, options = list(pageLength = 10))
+    }, options = list(pageLength = 10, searching = FALSE))
     
-    output$pathwayName <- renderDataTable({
-        input$plot
-        
-        if (input$plot > 0) {
-            pathway <- isolate(input$pathway)
-            gene_mat <- isolate(data$exprsdata)
-            phenotypes <- isolate(data$phenotypes)
-            
-            pathway_df <- map_genes_to_pathway(pathway, gene_mat)
-            label_samples(pathway_df)
-        }
-    }, options = list(pageLength = 10))
-    
-    output$pathwayViz <- renderDataTable({
+    output$pathwayViz1 <- renderPlot({
         input$plot
         
         if (input$plot > 0) {
@@ -93,8 +80,21 @@ shinyServer(function(input, output, session) {
             
             pathway_df <- map_genes_to_pathway(pathway, gene_mat)
             pathway_df <- label_samples(pathway_df, phenotypes)
-            get_class_df(pathway_df, "1")
-#             make_plot(pathway_df, "1")
+            make_plot(pathway_df, "1")
+        }
+    })
+    
+    output$pathwayViz2 <- renderPlot({
+        input$plot
+        
+        if (input$plot > 0) {
+            pathway <- isolate(input$pathway)
+            gene_mat <- isolate(data$exprsdata)
+            phenotypes <- isolate(data$phenotypes)
+            
+            pathway_df <- map_genes_to_pathway(pathway, gene_mat)
+            pathway_df <- label_samples(pathway_df, phenotypes)
+            make_plot(pathway_df, "2")
         }
     })
 })

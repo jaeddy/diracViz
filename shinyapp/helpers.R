@@ -82,10 +82,10 @@ get_class_df <- function(pathway_df, class = "1") {
 }
 
 # Create parallel coordinates plot
-make_plot <- function(pathway_df, class) {
+make_chart <- function(pathway_df, class) {
     class_df <- get_class_df(pathway_df, class)
     p <- rCharts$new()
-#     p$setLib("http://rcharts.github.io/parcoords/libraries/widgets/parcoords")
+    p$setLib("http://rcharts.github.io/parcoords/libraries/widgets/parcoords")
     p$set(padding = list(top = 24, left = 0, bottom = 12, right = 0))
     p$set(
         data = toJSONArray(class_df, json = F),
@@ -95,3 +95,13 @@ make_plot <- function(pathway_df, class) {
     )
     p
 }
+
+# Create ggplot2 line plot
+make_plot <- function(pathway_df, class) {
+    get_class_df(pathway_df, class) %>%
+        melt(id.vars = c("gene", "E_rank_class")) %>%
+        rename(rank = value, sample = variable) %>%
+        ggplot(aes(x = sample, y = rank, group = gene, colour = gene)) +
+        geom_line()
+}
+

@@ -83,8 +83,10 @@ shinyUI(fluidPage(
                             actionButton("plot",
                                          "Visualize Pathway"),
                             hr(),
-                            dataTableOutput("pathwayName"),
-                            dataTableOutput("pathwayViz")
+                            "Class 1",
+                            plotOutput("pathwayViz1"),
+                            "Class 2",
+                            plotOutput("pathwayViz2")
                             ),
                    tabPanel("Info"
                             )
