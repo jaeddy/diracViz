@@ -1,7 +1,8 @@
 library(shiny)
 library(GSReg)
 library(GSBenchMark)
-library(rCharts)
+library(ggplot2)
+library(reshape2)
 
 data(diracpathways)
 data(GSBenchMarkDatasets)
@@ -114,7 +115,19 @@ shinyUI(fluidPage(
                             ),
                    tabPanel("Results",
                             h4("Most Dysregulated Pathways"),
-                            textOutput("currentData"),
+                            h5("Key:"),
+                            p(strong("mu1:"), "measure of consistency of gene",
+                              "ordering in class 1; 0.5 would indicate random",
+                              "ordering from samle to sample, while 1.0",
+                              "indicates identical ordering in all samples."),
+                            p(strong("mu2:"), "measure of consistency of gene",
+                              "ordering in class 2; 0.5 would indicate random",
+                              "ordering from samle to sample, while 1.0",
+                              "indicates identical ordering in all samples."),
+                            p(strong("diff:"), "mu1 - mu2; difference in",
+                              "gene ordering consistency measures between",
+                              "class 1 and 2, representing the amount of",
+                              strong("dysregulation"), "for the pathway."),
                             br(),
                             dataTableOutput("topPathways")
                             ),
@@ -137,9 +150,9 @@ shinyUI(fluidPage(
                             plotOutput("pathwayViz1"),
                             "Class 2",
                             plotOutput("pathwayViz2")
-                            ),
-                   tabPanel("Info"
                             )
+#                    tabPanel("Info"
+#                             )
                    )
                )
     )
