@@ -1,13 +1,13 @@
 library(shiny)
 library(GSReg)
-library(GSBenchMark)
+# library(GSBenchMark)
 library(dplyr)
 library(rCharts)
 
 source("helpers.R")
 
 data(diracpathways)
-data(GSBenchMarkDatasets)
+# data(GSBenchMarkDatasets)
 
 shinyServer(function(input, output, session) {
 
@@ -23,7 +23,7 @@ shinyServer(function(input, output, session) {
         
         if (input$load > 0) {
             dataSetName <- isolate(input$dataset)
-            load_data(dataSetName)
+            load("gsRegEx.RData")
             exprsdata <- clean_data(exprsdata)
             
             data$exprsdata <- exprsdata

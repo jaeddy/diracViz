@@ -1,7 +1,8 @@
 
 # Load data set from GSBenchMark library
 load_data <- function(dataSetName) {
-    data(list = dataSetName)
+#     data(list = dataSetName)
+    load("gsRegEx.RData")
 }
 
 # Remove any genes with missing values or NaN entries

@@ -1,11 +1,11 @@
 library(shiny)
 library(GSReg)
-library(GSBenchMark)
+# library(GSBenchMark)
 library(ggplot2)
 library(reshape2)
 
 data(diracpathways)
-data(GSBenchMarkDatasets)
+# data(GSBenchMarkDatasets)
 
 shinyUI(fluidPage(
     
@@ -29,7 +29,8 @@ shinyUI(fluidPage(
                          style = "font-size: 10pt"),
                        selectizeInput("dataset",
                                    NULL,
-                                   choices = GSBenchMark.Dataset.names,
+#                                    choices = GSBenchMark.Dataset.names,
+                                   choices = "prostate_GDS2545_m_nf*",
                                    options = list(
                                        placeholder = "Select dataset...",
                                        onInitialize = 
@@ -37,6 +38,9 @@ shinyUI(fluidPage(
                                                     '{ this.setValue(""); }'))
                                    )
                        ),
+                       p(em("* more datasets to be available in future",
+                            "versions"),
+                         options = "font-size: 9pt"),
                        actionButton("load",
                                     "Load data")
                    ),
