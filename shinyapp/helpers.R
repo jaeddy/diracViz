@@ -85,7 +85,7 @@ get_class_df <- function(pathway_df, class = "1") {
 make_plot <- function(pathway_df, class) {
     class_df <- get_class_df(pathway_df, class)
     p <- rCharts$new()
-    p$setLib("http://rcharts.github.io/parcoords/libraries/widgets/parcoords")
+#     p$setLib("http://rcharts.github.io/parcoords/libraries/widgets/parcoords")
     p$set(padding = list(top = 24, left = 0, bottom = 12, right = 0))
     p$set(
         data = toJSONArray(class_df, json = F),

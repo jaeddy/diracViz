@@ -2,6 +2,8 @@ library(GSBenchMark)
 library(GSReg)
 library(dplyr)
 library(rCharts)
+library(ggplot2)
+library(reshape2)
 
 source("shinyapp/helpers.R")
 
@@ -35,9 +37,9 @@ get_class_df <- function(pathway_df, class = "1") {
     cbind(gene = genes, E_rank_class = E_class, class_df)
 }
 
-test <- get_class_df(pathway_df)
+class_df <- get_class_df(pathway_df)
 
-make_plot <- function(pathway_df, class) {
+make_chart <- function(pathway_df, class) {
     class_df <- get_class_df(pathway_df, class)
     p <- rCharts$new()
     p$setLib("http://rcharts.github.io/parcoords/libraries/widgets/parcoords")
@@ -51,5 +53,14 @@ make_plot <- function(pathway_df, class) {
     p
 }
 
-make_plot(pathway_df, "1")
+make_chart(pathway_df, "1")
 
+make_plot <- function(pathway_df, class) {
+    get_class_df(pathway_df, class) %>%
+        melt(id.vars = c("gene", "E_rank_class")) %>%
+        rename(rank = value, sample = variable) %>%
+        ggplot(aes(x = sample, y = rank, group = gene, colour = gene)) +
+        geom_line()
+}
+
+make_plot(pathway_df, "2")
