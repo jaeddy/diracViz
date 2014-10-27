@@ -19,7 +19,7 @@ exprsdata <- clean_data(exprsdata)
 # Generate, compile, and format DIRAC results
 diracResult <- GSReg.GeneSets.DIRAC(exprsdata, diracpathways, phenotypes, 0)
 results <- collect_results(diracResult)
-pathway_df <- format_results(results)
+pathwayTable <- format_results(results)
 
 # Pull out pathway expression data
 pathway <- row.names(results)[86]

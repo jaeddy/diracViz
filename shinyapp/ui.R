@@ -4,7 +4,8 @@ library(GSReg)
 library(ggplot2)
 library(reshape2)
 
-data(diracpathways)
+load("gsRegEx.RData")
+# data(diracpathways)
 # data(GSBenchMarkDatasets)
 
 shinyUI(fluidPage(

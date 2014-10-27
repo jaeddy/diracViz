@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>DIRACExplorer for Biological Pathway Analysis</title>
+  <title>diracExplorer for Biological Pathway Analysis</title>
   <meta charset="utf-8">
-  <meta name="description" content="DIRACExplorer for Biological Pathway Analysis">
+  <meta name="description" content="diracExplorer for Biological Pathway Analysis">
   <meta name="author" content="James Eddy">
   <meta name="generator" content="slidify" />
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -32,7 +32,7 @@
     <!-- LOGO SLIDE -->
         <slide class="title-slide segue nobackground">
   <hgroup class="auto-fadein">
-    <h1>DIRACExplorer for Biological Pathway Analysis</h1>
+    <h1>diracExplorer for Biological Pathway Analysis</h1>
     <h2>Interactive analysis and visualization of gene expression in biological pathways with Differential Rank Conservation</h2>
     <p>James Eddy<br/></p>
   </hgroup>
@@ -43,23 +43,83 @@
     <!-- SLIDES -->
     <slide class="" id="slide-1" style="background:;">
   <hgroup>
-    <h2>Read-And-Delete</h2>
+    <h2>Pathway analysis in disease genomics</h2>
   </hgroup>
   <article data-timings="">
-    <ol>
-<li>Edit YAML front matter</li>
-<li>Write using R Markdown</li>
-<li>Use an empty line followed by three dashes to separate slides!</li>
-</ol>
+    <ul>
+<li>Modern genomics studies obtain measurements for tens of thousands of
+individual genes across dozens to hundreds of samples (patients, cells, etc.)<br></li>
+<li>Computational biologists apply statistics and machine learning to these 
+large-scale &quot;gene expression&quot; datasets to aid in disease classification or 
+diagnosis<br></li>
+<li>Studying gene expression in the context of functionally relevant biological
+pathways can lead to more interpretable results and more clear insights into
+disease mechanism</li>
+</ul>
 
   </article>
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="class" id="id" style="background:;">
+<slide class="" id="slide-2" style="background:;">
   <hgroup>
-    <h2>Slide 2</h2>
+    <h2>Quantifying pathway regulation with DIRAC</h2>
   </hgroup>
+  <article data-timings="">
+    <ul>
+<li>Differential Rank Conservation (DIRAC) is an approach I developed in my PhD 
+to examine how within-pathway gene rankings change from sample-to-sample</li>
+<li>Parts of the DIRAC method were recently published in the <code>GSReg</code> package in
+Bioconductor</li>
+<li>For example, DIRAC will look at three genes in a pathway: gene A, gene B, and
+gene C; if the expression values of these genes in a selected sample are 3.4,
+8.9, and 1.2, then the corresponding ranks are 2, 3, 1.
+DIRAC then examines the consistency of this ordering across samples.</li>
+</ul>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-3" style="background:;">
+  <hgroup>
+    <h2>Identifying dysregulated pathways with diracExplorer</h2>
+  </hgroup>
+  <article data-timings="">
+    <ul>
+<li>If a pathway exhibits a significant increase or decrease in consistency of
+sample-to-sample ranking between populations, it is considered to be 
+&quot;dysregulated&quot;</li>
+<li>The diracExplorer app allows researchers to easily identify the most
+dysregulated pathways between phenotypes (e.g., normal or cancer) in disease
+datasets</li>
+</ul>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-4" style="background:;">
+  <hgroup>
+    <h2>Visualizing pathway dysregulation with diracExplorer</h2>
+  </hgroup>
+  <article data-timings="">
+    <ul>
+<li>Using diracExplorer and <code>ggplot2</code>, researchers can also select individual 
+pathways and visualize their gene expression patterns across samples in the data<br></li>
+<li>Visualizing pathways can help researchers understand the patterns quantified
+by DIRAC, and highlight interesting features worth exploring in follow-up
+experiments</li>
+</ul>
+
+<p>The current version of diracExplorer includes only minimal features and options.
+I hope to expand the flexibility and capabilities of this app in the future.</p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-5" style="background:;">
   <article data-timings="">
     
   </article>
@@ -72,14 +132,32 @@
     <ul>
       <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=1 title='Read-And-Delete'>
+        data-slide=1 title='Pathway analysis in disease genomics'>
          1
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=2 title='Slide 2'>
+        data-slide=2 title='Quantifying pathway regulation with DIRAC'>
          2
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=3 title='Identifying dysregulated pathways with diracExplorer'>
+         3
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=4 title='Visualizing pathway dysregulation with diracExplorer'>
+         4
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=5 title=''>
+         5
       </a>
     </li>
   </ul>

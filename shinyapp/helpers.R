@@ -49,10 +49,10 @@ format_results <- function(results) {
 }
 
 # Map gene expression values to an individual pathway
-map_genes_to_pathway <- function(pathway, gene_mat) {
+map_genes_to_pathway <- function(pathway, diracpathways, gene_mat) {
     gene_mat %>%
         data.frame() %>%
-        mutate(gene = as.factor(row.names(exprsdata))) %>%
+        mutate(gene = as.factor(row.names(gene_mat))) %>%
         filter(gene %in% diracpathways[[pathway]]) %>%
         group_by(gene) %>%
         summarise_each_(funs(max), list(quote(-gene)))

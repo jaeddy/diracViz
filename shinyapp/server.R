@@ -6,7 +6,8 @@ library(rCharts)
 
 source("helpers.R")
 
-data(diracpathways)
+load("gsRegEx.RData")
+# data(diracpathways)
 # data(GSBenchMarkDatasets)
 
 shinyServer(function(input, output, session) {
@@ -47,7 +48,7 @@ shinyServer(function(input, output, session) {
                                                 Nperm, minGeneNum)
             
             data$results <- collect_results(diracResult)
-            
+
             updateSelectizeInput(session, "pathway",
                               "Select pathway:",
                               choices = row.names(data$results),
@@ -78,7 +79,7 @@ shinyServer(function(input, output, session) {
             gene_mat <- isolate(data$exprsdata)
             phenotypes <- isolate(data$phenotypes)
             
-            pathway_df <- map_genes_to_pathway(pathway, gene_mat)
+            pathway_df <- map_genes_to_pathway(pathway, diracpathways, gene_mat)
             pathway_df <- label_samples(pathway_df, phenotypes)
             make_plot(pathway_df, "1")
         }
@@ -92,7 +93,7 @@ shinyServer(function(input, output, session) {
             gene_mat <- isolate(data$exprsdata)
             phenotypes <- isolate(data$phenotypes)
             
-            pathway_df <- map_genes_to_pathway(pathway, gene_mat)
+            pathway_df <- map_genes_to_pathway(pathway, diracpathways, gene_mat)
             pathway_df <- label_samples(pathway_df, phenotypes)
             make_plot(pathway_df, "2")
         }
